@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Education Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #ffcc00;
+            --blue: #3498db;
+            --green: #2ecc71;
+            --red: #e74c3c;
+            --purple: #9b59b6;
+            --orange: #e67e22;
+            --dark: #2c3e50;
+            --light: #f4f7f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        
+        .btn-enter {
+            margin-top: 30px;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            background: var(--yellow);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-enter:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content Grid */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 10px solid var(--blue);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card-content { padding: 30px; }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card-text { margin-bottom: 20px; font-size: 1rem; }
+
+        .image-placeholder {
+            width: 100%;
+            height: 180px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 3rem;
+            transition: background 0.3s;
+        }
+
+        .image-placeholder:hover { background: #e0e0e0; }
+
+        .extra-info {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background: #f9f9f9;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .extra-info.active {
+            max-height: 500px;
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Specific Colors */
+        .c-1 { border-color: var(--blue); }
+        .c-2 { border-color: var(--green); }
+        .c-3 { border-color: var(--orange); }
+        .c-4 { border-color: var(--red); }
+        .c-5 { border-color: var(--purple); }
+        .c-6 { border-color: var(--yellow); }
+        /* Colors repeat... */
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--dark);
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>Diabetes Education</h1>
+            <p>Diabetes is a chronic condition that affects how the body processes blood sugar. Understanding it is essential for a healthy life. This website helps you learn, prevent, and manage diabetes in a simple and clear way.</p>
+            <a href="#main" class="btn-enter">Enter</a>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <article class="card c-1">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--blue)">1. What is Diabetes?</h2>
+                <p class="card-text">Diabetes happens when your blood sugar, also called blood glucose, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to be used for energy. Sometimes your body doesn’t make enough—or any—insulin or doesn’t use insulin well.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">💡</div>
+            </div>
+            <div class="extra-info">
+                <strong>Quick Tip:</strong> There are different types, mainly Type 1 (usually starts in childhood) and Type 2 (usually starts later in life).
+            </div>
+        </article>
+
+        <article class="card c-2">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--green)">2. Main Signs</h2>
+                <p class="card-text">How do you know if you might have diabetes? Common signs include feeling very thirsty, even after drinking water. You might also need to go to the bathroom much more often than usual, especially at night. Other people feel extremely tired or notice that their vision is getting a bit blurry. If you notice these signs, it is always a good idea to visit a doctor for a simple test.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">⚠️</div>
+            </div>
+            <div class="extra-info">
+                <strong>More Detail:</strong> Sudden weight loss without trying is another common symptom to watch out for!
+            </div>
+        </article>
+
+        <article class="card c-3">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--orange)">3. Dietary Advice</h2>
+                <p class="card-text">Eating well is the best way to manage blood sugar. Try to fill half of your plate with non-starchy vegetables like broccoli, spinach, or carrots. Include small amounts of protein like chicken or beans, and pick whole grains like brown rice instead of white bread. It is important to drink water instead of sugary sodas or juices to keep your levels stable throughout the day.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🥗</div>
+            </div>
+            <div class="extra-info">
+                <strong>Pro Tip:</strong> Fiber is your friend! It slows down sugar absorption and keeps you full longer.
+            </div>
+        </article>
+
+        <article class="card c-4">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--red)">4. Testing at Home</h2>
+                <p class="card-text">Testing your blood sugar at home is done with a small device called a glucose meter. First, wash your hands with warm soap and water. Use a tiny needle (lancet) to prick the side of your finger for a small drop of blood. Put the blood on a test strip that is already in the meter. In a few seconds, the meter will show you a number that tells you your sugar level.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🩸</div>
+            </div>
+            <div class="extra-info">
+                <strong>Remember:</strong> Keep a logbook of your numbers so you can show them to your doctor later!
+            </div>
+        </article>
+
+        <article class="card c-5">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--purple)">5. Testing Mistakes</h2>
+                <p class="card-text">Sometimes tests give the wrong results. A common mistake is not washing your hands; if you just ate fruit, the sugar on your skin can make the number look too high. Other mistakes include using expired test strips or not using enough blood on the strip. Make sure your meter is clean and that you follow the instructions carefully to get the most accurate information possible.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">❌</div>
+            </div>
+            <div class="extra-info">
+                <strong>Note:</strong> Extreme heat or cold can also damage your test strips, so keep them in a cool, dry place.
+            </div>
+        </article>
+
+        <article class="card c-6">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--yellow)">6. How to Diagnose</h2>
+                <p class="card-text">Doctors use specific blood tests to find out if someone has diabetes. The most common is the A1C test, which measures your average blood sugar over the last three months. Another test is the Fasting Plasma Glucose test, which is done in the morning before you eat anything. These tests are fast and help doctors decide the best way to help you stay healthy and strong.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🏥</div>
+            </div>
+            <div class="extra-info">
+                <strong>Fact:</strong> An A1C level of 6.5% or higher on two separate tests usually means you have diabetes.
+            </div>
+        </article>
+
+        <article class="card c-1">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--blue)">7. Prediabetes</h2>
+                <p class="card-text">Prediabetes is a "warning light" for your body. It means your blood sugar levels are higher than normal, but not high enough yet to be called Type 2 diabetes. The good news is that prediabetes can often be reversed! By making small changes like walking more every day and choosing healthier snacks, you can bring your sugar levels back to a normal range and prevent future health problems.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🏃</div>
+            </div>
+            <div class="extra-info">
+                <strong>Stay Positive:</strong> Losing just 5% to 7% of your body weight can make a huge difference!
+            </div>
+        </article>
+
+        <article class="card c-2">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--green)">8. COVID-19 & Diabetes</h2>
+                <p class="card-text">During the COVID-19 pandemic, people with diabetes had to be extra careful. When you are sick, your body releases hormones to fight the infection, but these hormones can also make your blood sugar go up. It is important for people with diabetes to have a "sick day plan," stay hydrated, and keep taking their medicine even if they don't feel like eating much while they are ill.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">😷</div>
+            </div>
+            <div class="extra-info">
+                <strong>Advice:</strong> Always keep a 14-day supply of your medications and testing supplies ready.
+            </div>
+        </article>
+
+        <article class="card c-3">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--orange)">9. Complications</h2>
+                <p class="card-text">If blood sugar stays high for many years, it can hurt different parts of the body. This includes your heart, your eyes, and your kidneys. High sugar can also damage the nerves in your feet, which might make them feel numb or tingly. However, by keeping your blood sugar in a healthy range, you can prevent these problems and live a long, active life without any issues.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">👁️</div>
+            </div>
+            <div class="extra-info">
+                <strong>Prevention:</strong> Regular checkups with an eye doctor and a foot doctor are very helpful.
+            </div>
+        </article>
+
+        <article class="card c-4">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--red)">10. Breaking Myths</h2>
+                <p class="card-text">There are many myths about diabetes. One big myth is that you only get diabetes if you are overweight; while weight is a factor, genetics also play a huge role. Another myth is that people with diabetes can "never eat sugar." In reality, people with diabetes can enjoy sweets in moderation as part of a balanced meal plan. It is all about balance and planning, not about being perfect.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🧐</div>
+            </div>
+            <div class="extra-info">
+                <strong>Truth:</strong> Diabetes is not contagious. You cannot "catch" it from someone else like a cold.
+            </div>
+        </article>
+
+        <article class="card c-5">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--purple)">11. Carb Intake</h2>
+                <p class="card-text">Carbohydrates (carbs) are the parts of food that turn into sugar. They are found in bread, pasta, fruit, and milk. You don't need to stop eating carbs, but you should choose "complex" carbs like oatmeal or beans because they digest slowly. Simple carbs like candy or white bread turn into sugar very quickly and can cause your blood sugar to spike. Learning to count carbs is a great skill!</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🍞</div>
+            </div>
+            <div class="extra-info">
+                <strong>Tip:</strong> Look at the "Total Carbohydrate" on food labels to help you keep track.
+            </div>
+        </article>
+
+        <article class="card c-6">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--yellow)">12. Medicines</h2>
+                <p class="card-text">Some people can manage diabetes with just food and exercise, but many others need medicine. Metformin is a common pill that helps your body use its own insulin better. Other people might need to take insulin shots because their body doesn't make it anymore. There are also many new types of medicines that can be taken as pills or weekly shots to help keep your blood sugar levels steady.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">💊</div>
+            </div>
+            <div class="extra-info">
+                <strong>Important:</strong> Never stop taking your medicine without talking to your doctor first.
+            </div>
+        </article>
+
+        <article class="card c-1">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--blue)">13. Prevention</h2>
+                <p class="card-text">Preventing Type 2 diabetes is all about lifestyle. You don't have to be an athlete; just walking for 30 minutes five days a week is enough to help. Drinking water instead of soda, choosing snacks like nuts or yogurt instead of chips, and getting enough sleep are all powerful tools. Small, healthy choices every day add up to a big defense against diabetes and other health problems.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🛡️</div>
+            </div>
+            <div class="extra-info">
+                <strong>Action:</strong> Try to find an "activity buddy" to make exercising more fun and consistent!
+            </div>
+        </article>
+
+        <article class="card c-2">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--green)">14. Risk Factors</h2>
+                <p class="card-text">Certain things make it more likely for someone to get diabetes. These include being over age 45, having a family member with diabetes (like a parent or sibling), or having a history of high blood pressure. While you can't change your age or your family, you can change your activity level and what you eat. Knowing your risks helps you take action early to stay healthy and strong.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">📈</div>
+            </div>
+            <div class="extra-info">
+                <strong>Knowledge:</strong> Being aware of your family history is the first step in prevention!
+            </div>
+        </article>
+
+        <article class="card c-3">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--orange)">15. Emergency Treatment</h2>
+                <p class="card-text">Sometimes sugar goes way too low or way too high, and this is an emergency. If someone is confused, shaky, or faints, they might need help immediately. For low sugar, they need something sweet quickly. For very high sugar, they may need to go to the hospital. It is very helpful for people with diabetes to wear a medical ID bracelet so that others know how to help them if they are in trouble.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🚨</div>
+            </div>
+            <div class="extra-info">
+                <strong>Emergency:</strong> If someone is unconscious, never try to give them food or drink; call 911.
+            </div>
+        </article>
+
+        <article class="card c-4">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--red)">16. Gestational Diabetes</h2>
+                <p class="card-text">Gestational diabetes is a type of diabetes that happens only during pregnancy. It occurs because the body cannot make enough insulin to handle the needs of both the mother and the growing baby. Most of the time, it goes away after the baby is born. During pregnancy, moms-to-be work with their doctors to eat healthy and sometimes take medicine to make sure the baby grows safely.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🤰</div>
+            </div>
+            <div class="extra-info">
+                <strong>Fact:</strong> This doesn't mean the baby will be born with diabetes!
+            </div>
+        </article>
+
+        <article class="card c-5">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--purple)">17. Ways to Take Insulin</h2>
+                <p class="card-text">Taking insulin is much easier today than it used to be. Some people use "insulin pens" which look like thick markers with a tiny needle on the end. Others use an "insulin pump," which is a small device worn on the body that gives insulin automatically throughout the day. There are even versions that are inhaled! Your doctor will help you choose the one that fits your daily life and makes you feel most comfortable.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">💉</div>
+            </div>
+            <div class="extra-info">
+                <strong>Modern Tech:</strong> Some pumps can now "talk" to your sugar monitor to adjust insulin automatically!
+            </div>
+        </article>
+
+        <article class="card c-6">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--yellow)">18. Low Blood Sugar 101</h2>
+                <p class="card-text">Low blood sugar, or hypoglycemia, happens when your sugar drops below 70 mg/dL. It can happen if you skip a meal or exercise much harder than usual. You might feel shaky, sweaty, hungry, or dizzy. When this happens, you need to follow the "15-15 Rule": eat 15 grams of fast-acting sugar (like 4 ounces of juice), wait 15 minutes, and check your sugar again to see if it is back up.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">📉</div>
+            </div>
+            <div class="extra-info">
+                <strong>Fast Sugars:</strong> 3-4 glucose tablets or a tablespoon of honey also work perfectly.
+            </div>
+        </article>
+
+        <article class="card c-1">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--blue)">19. Nighttime Lows</h2>
+                <p class="card-text">Sometimes blood sugar can drop while you are sleeping. This is called nocturnal hypoglycemia. You might realize this happened if you wake up with a damp shirt from sweating, have nightmares, or feel a very bad headache in the morning. To prevent this, some people eat a small snack with protein and carbs (like apple and peanut butter) before bed, or their doctor might adjust their evening medicine.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🌙</div>
+            </div>
+            <div class="extra-info">
+                <strong>Safety:</strong> If you often have nighttime lows, a continuous glucose monitor (CGM) can beep to wake you up!
+            </div>
+        </article>
+
+        <article class="card c-2">
+            <div class="card-content">
+                <h2 class="card-title" style="color: var(--green)">20. Treating with Food</h2>
+                <p class="card-text">When sugar is low, you need "fast" foods that get into the blood quickly. Good examples are half a cup of fruit juice, a tablespoon of sugar dissolved in water, or five small hard candies. Avoid using chocolate or cookies to treat a low, because the fat in them slows down the sugar, and you need the sugar to work immediately. Once you feel better, eat a regular meal to keep the levels stable.</p>
+                <div class="image-placeholder" onclick="toggleInfo(this)">🍎</div>
+            </div>
+            <div class="extra-info">
+                <strong>Summary:</strong> Fast sugar for the fix, protein/complex carbs for the stay!
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>Educational website about diabetes &copy; 2024</p>
+    </footer>
+
+    <script>
+        function toggleInfo(element) {
+            // Find the extra-info div that is a sibling of the parent of the clicked element
+            const card = element.closest('.card');
+            const extraInfo = card.querySelector('.extra-info');
+            
+            // Toggle the active class
+            extraInfo.classList.toggle('active');
+            
+            // Optional: Change the icon/image back and forth
+            if(extraInfo.classList.contains('active')) {
+                element.style.transform = "scale(1.2)";
+            } else {
+                element.style.transform = "scale(1)";
+            }
+        }
+    </script>
+</body>
+</html>
